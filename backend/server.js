@@ -18,7 +18,16 @@ const SSL_CERT_PATH = process.env.SSL_CERT_PATH || '';
 if(JWT_SECRET === 'dev-secret-change-me') console.warn('WARNING: using default JWT_SECRET — set a strong JWT_SECRET in environment for production');
 if(ADMIN_PASSWORD === '5al3D647+') console.warn('WARNING: using default ADMIN_PASSWORD — set ADMIN_PASSWORD in environment for production');
 
-app.use(cors());
+// CORS: allow requests from configured frontend or app URL only (or allow non-browser requests)
+const allowedOrigins = [process.env.FRONTEND_URL, process.env.APP_URL].filter(Boolean);
+app.use(cors({
+  origin: (origin, callback) => {
+    // allow server-to-server or tools like curl where origin is undefined
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.length === 0) return callback(null, true);
+    return callback(null, allowedOrigins.includes(origin));
+  }
+}));
 app.use(express.json());
 
 // Serve frontend static files
