@@ -1,0 +1,26 @@
+:root{ --accent:#0b6; --bg:#f7f7f8; --card:#fff; --text:#222 }
+*{box-sizing:border-box;font-family:system-ui,Segoe UI,Helvetica,Arial}
+body{margin:0;background:var(--bg);color:var(--text);}
+header{background:var(--card);padding:16px;border-bottom:1px solid #e5e5e5}
+header h1{margin:0 0 8px 0;font-size:1.4rem}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{background:transparent;border:1px solid #ddd;padding:8px 12px;border-radius:6px;cursor:pointer}
+nav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+main{padding:20px;max-width:900px;margin:12px auto}
+.panel{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.04);margin-bottom:12px}
+.hidden{display:none}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table th,.admin-table td{border:1px solid #eee;padding:8px;text-align:right}
+.admin-table pre{margin:0;font-family:monospace;font-size:0.85rem}
+.del-user, .del-entry{background:#e44;border:none;color:#fff;padding:6px 8px;border-radius:6px;cursor:pointer}
+.del-user:hover, .del-entry:hover{opacity:0.9}
+form label{display:block;margin-bottom:10px}
+form input, form textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
+form textarea{min-height:100px}
+form button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:6px;cursor:pointer}
+footer{text-align:center;padding:12px;color:#666}
+
+@media (min-width:800px){
+	nav{gap:12px}
+	main{padding:28px}
+}

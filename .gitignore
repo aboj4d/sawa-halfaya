@@ -1,0 +1,11 @@
+# Ignore node modules
+node_modules/
+
+# Ignore backend environment file
+backend/.env
+
+# Ignore database file
+database/db.json
+
+# Logs
+*.log

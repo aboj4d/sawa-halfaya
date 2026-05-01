@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>بوابة مدينة حلفايا - الخدمات</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>بوابة مدينة حلفايا</h1>
+		<nav>
+			<button data-target="inquiry" class="active">استعلامات</button>
+			<button data-target="ads">إعلانات</button>
+			<button data-target="complaints">شكاوى</button>
+			<button data-target="requests">طلبات</button>
+			<button data-target="info">معلومات</button>
+			<button data-target="auth">تسجيل / دخول</button>
+			<button data-target="admin">لوحة الإدارة</button>
+		</nav>
+	</header>
+
+	<main>
+		<section id="inquiry" class="panel">
+			<h2>نموذج استعلام</h2>
+			<form data-service="inquiry">
+				<label>الاسم<input name="name" required></label>
+				<label>تفاصيل الاستعلام<textarea name="question" required></textarea></label>
+				<button type="submit">إرسال الاستعلام</button>
+			</form>
+		</section>
+
+		<section id="ads" class="panel hidden">
+			<h2>نشر إعلان</h2>
+			<form data-service="ads">
+				<label>العنوان<input name="title" required></label>
+				<label>تفاصيل الإعلان<textarea name="content" required></textarea></label>
+				<button type="submit">نشر الإعلان</button>
+			</form>
+		</section>
+
+		<section id="complaints" class="panel hidden">
+			<h2>تقديم شكوى</h2>
+			<form data-service="complaints">
+				<label>الاسم<input name="name" required></label>
+				<label>موضوع الشكوى<textarea name="complaint" required></textarea></label>
+				<button type="submit">إرسال الشكوى</button>
+			</form>
+		</section>
+
+		<section id="requests" class="panel hidden">
+			<h2>تقديم طلب</h2>
+			<form data-service="requests">
+				<label>الاسم<input name="name" required></label>
+				<label>الطلب<textarea name="request" required></textarea></label>
+				<button type="submit">إرسال الطلب</button>
+			</form>
+		</section>
+
+		<section id="info" class="panel hidden">
+			<h2>معلومات عن المدينة</h2>
+			<p>مرحبًا بكم في بوابة مدينة حلفايا. اختر خدمة من الأعلى لإرسال بياناتك.</p>
+		</section>
+
+		<section id="auth" class="panel hidden">
+			<h2>التسجيل / تسجيل الدخول</h2>
+			<div class="auth-status" style="margin-bottom:12px">
+				<span class="user-info">غير مسجل</span>
+				<button class="logout-btn hidden">تسجيل الخروج</button>
+			</div>
+
+			<div class="auth-forms">
+				<form id="registerForm" data-auth="register">
+					<h3>تسجيل</h3>
+					<label>الإيميل<input name="email" type="email" required></label>
+					<label>كلمة المرور<input name="password" type="password" required></label>
+					<button type="submit">تسجيل</button>
+				</form>
+
+				<form id="loginForm" data-auth="login" style="margin-top:16px">
+					<h3>تسجيل الدخول</h3>
+					<label>الإيميل<input name="email" type="email" required></label>
+					<label>كلمة المرور<input name="password" type="password" required></label>
+					<button type="submit">دخول</button>
+				</form>
+			</div>
+		</section>
+
+		<section id="admin" class="panel hidden">
+			<h2>لوحة الإدارة</h2>
+			<div class="admin-login">
+				<form id="adminLoginForm">
+					<label>كلمة مرور المشرف<input name="password" type="password" required></label>
+					<button type="submit">دخول كمشرف</button>
+				</form>
+				<div style="margin-top:8px">
+					<button id="adminLogoutBtn" class="hidden">تسجيل خروج مشرف</button>
+				</div>
+			</div>
+
+			<div class="admin-controls hidden">
+				<div style="display:flex;gap:8px;align-items:center;margin:12px 0">
+					<button id="loadUsersBtn">جلب المستخدمين</button>
+					<label>خدمة: 
+						<select id="serviceFilter">
+							<option value="">كل الخدمات</option>
+							<option value="inquiry">استعلامات</option>
+							<option value="ads">إعلانات</option>
+							<option value="complaints">شكاوى</option>
+							<option value="requests">طلبات</option>
+							<option value="info">معلومات</option>
+						</select>
+					</label>
+					<button id="loadEntriesBtn">جلب الإدخالات</button>
+				</div>
+
+				<div id="adminUsers" style="margin-top:12px"></div>
+				<div id="adminEntries" style="margin-top:12px"></div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<p>حقوق الأسئلة محفوظة لبلدية حلفايا — نسخة تجريبية</p>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
