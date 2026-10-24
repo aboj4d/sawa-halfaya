@@ -1,9 +1,0 @@
-name: Test Workflow
-on: [push, workflow_dispatch]  # يسمح بالتشغيل اليدوي أيضاً
-
-jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Say Hello
-        run: echo "✅ Hello from GitHub Actions! Repo: sawa-halfaya"
