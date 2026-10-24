@@ -1,12 +1,8 @@
 // Validation + routes for the public service forms:
 // POST /api/inquiry | /api/ads | /api/complaints | /api/requests | /api/info
 //
-// Usage in server.js (after express.json() and authMiddleware):
-//   const { createServiceRouter } = require('./services');
+// Mounted from server.js after express.json() and authMiddleware:
 //   app.use('/api', createServiceRouter({ createEntry, limiter: serviceLimiter }));
-// and delete the old `services.forEach(...)` block.
-
-const express = require('express');
 
 // Allowed fields per service: { field: { max, required } }
 const SCHEMAS = {
@@ -76,6 +72,8 @@ function createServiceRouter({ createEntry, limiter } = {}) {
   if (typeof createEntry !== 'function') {
     throw new Error('createServiceRouter: createEntry(service, data, userId) is required');
   }
+  // required lazily so that validate() can be unit-tested without express installed
+  const express = require('express');
   const router = express.Router();
 
   Object.keys(SCHEMAS).forEach((service) => {
