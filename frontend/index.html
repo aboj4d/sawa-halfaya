@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<div id="message" class="hidden" role="status" aria-live="polite"></div>
 	<header>
 		<h1>بوابة مدينة حلفايا</h1>
 		<nav>
@@ -73,7 +74,7 @@
 				<form id="registerForm" data-auth="register">
 					<h3>تسجيل</h3>
 					<label>الإيميل<input name="email" type="email" required></label>
-					<label>كلمة المرور<input name="password" type="password" required></label>
+					<label>كلمة المرور<input name="password" type="password" minlength="8" maxlength="72" autocomplete="new-password" required></label>
 					<button type="submit">تسجيل</button>
 				</form>
 
@@ -121,7 +122,7 @@
 	</main>
 
 	<footer>
-		<p>حقوق الأسئلة محفوظة لبلدية حلفايا — نسخة تجريبية</p>
+		<p>حقوق النشر محفوظة لبلدية حلفايا — نسخة تجريبية</p>
 	</footer>
 
 	<script src="script.js"></script>

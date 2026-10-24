@@ -24,3 +24,8 @@ footer{text-align:center;padding:12px;color:#666}
 	nav{gap:12px}
 	main{padding:28px}
 }
+
+#message{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:10;max-width:90%;padding:10px 16px;border-radius:6px;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+#message.success{background:var(--accent)}
+#message.error{background:#d33}
+#message.hidden{display:none}
